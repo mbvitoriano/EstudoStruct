@@ -1,0 +1,43 @@
+using System;
+
+namespace Aula_ATP_Quinta
+{
+    class Program
+    {
+
+        struct ponto
+        {
+            public double x, y;
+        }
+
+        static ponto lerPonto()
+        {
+            ponto p;
+            Console.Write("Coordenada x: ");
+            p.x = double.Parse(Console.ReadLine());
+            Console.Write("Coordenada y: ");
+            p.y = double.Parse(Console.ReadLine());
+
+            return (p);
+        }
+
+        static double distanciaEntrePontos (ponto A, ponto B)
+        {                       
+            return (Math.Sqrt((Math.Pow(A.x - B.x, 2) + Math.Pow(A.y - B.y, 2))));
+        }
+
+        static void Main(string[] args)
+        {
+            ponto A, B;
+            double d;
+
+            A = lerPonto();
+            B = lerPonto();
+            d = distanciaEntrePontos(A, B);
+
+            Console.WriteLine("A distância entre os pontos ({0} , {1}) e ({2} , {3}) é {4} ", A.x, A.y, B.x, B.y, d);
+
+            Console.ReadKey();                              
+        }
+    }
+}
